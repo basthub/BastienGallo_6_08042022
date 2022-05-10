@@ -1,5 +1,5 @@
-import dataFetcher from "../services/datafetcher.js";
-import photographerFactory from "../factories/photographer.js";
+/*import dataFetcher from "../services/datafetcher.js";
+
 
 
     async function displayData(photographers) {
@@ -25,4 +25,4 @@ import photographerFactory from "../factories/photographer.js";
     };
     
     init();
-    
+    */
