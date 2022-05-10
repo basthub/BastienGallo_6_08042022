@@ -1,28 +1,36 @@
-/*import dataFetcher from "../services/datafetcher.js";
+import dataFetcher from "../services/DataFetcher.js";
+import photographerCard from "../factories/photographerfactory.js";
+import mediaList from "../factories/medialist.js";
 
+class photographerHeader {
+    
+    constructor(photographer) {
+        this.photographer = photographer;
+    }
 
+    render() {
+        const photographerHeader = document.querySelector(".photograph-header");
 
-    async function displayData(photographers) {
-        const photographHeader = document.querySelector(".photograph-header");
-        //récupère l'id dans l'url
-        let params = (new URL(document.location)).searchParams;
-        let photographId = params.get('id');
-        console.log(photographId);
-
-        // cherche un id correspondant à celui de l'url
-        let findPhotographer = photographers.find(photographer => photographer.id == photographId);
-        console.log(findPhotographer);
-        
-        const photographerModel = photographerFactory(findPhotographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographHeader.appendChild(userCardDOM);        
-    };
+        this.photographer.forEach((photographer) => {
+            let params = (new URL(document.location)).searchParams;
+            let photographerId = params.get('id');
+            
+            if(photographer.id == photographerId){
+                const photographCard = new photographerCard(photographer);              
+                photographerHeader.innerHTML = photographCard.render();
+            }
+        })
+    }
+}
 
     async function init() {
-        // Récupère les datas des photographes
         const photographers = await dataFetcher.getPhotographersList();
-        displayData(photographers);
+        const photographHeader = new photographerHeader(photographers);
+        photographHeader.render();
+        const medias = await dataFetcher.getMediaList();
+        const mediumList = new mediaList(medias);
+        mediumList.render();
     };
     
     init();
-    */
+    

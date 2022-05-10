@@ -9,8 +9,8 @@ class photographerCard {
         const picture = `assets/photographers/${this.photographer.portrait}`;
 
         return `
-        <article>
-            <img src="${picture}" onclick="location.href='./photographer.html?id=${this.photographer.id}'"/>
+        <article onclick="location.href='./photographer.html?id=${this.photographer.id}'">
+            <img src="${picture}" />
             <h2>${this.photographer.name}</h2>
             <h3>${this.photographer.city + ", " + this.photographer.country}</h3>
             <p>${this.photographer.tagline}</p>

@@ -1,4 +1,4 @@
-import dataFetcher from "../services/datafetcher.js";
+import dataFetcher from "../services/DataFetcher.js";
 import photographerList from "../factories/photographerlist.js";
 
 
