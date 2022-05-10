@@ -1,19 +1,6 @@
+import dataFetcher from "../services/datafetcher.js";
 import photographerFactory from "../factories/photographer.js";
-async function getPhotographers() {
 
-    let response = await fetch('./data/photographers.json');
-    let data = '';
-    try {
-        data = await response.json();
-    }
-  
-    catch { 
-        let errorPage = new PageError();
-        errorPage.buildIndex();
-    }
-
-    return data;
-}
 
     async function displayData(photographers) {
         const photographHeader = document.querySelector(".photograph-header");
@@ -33,7 +20,7 @@ async function getPhotographers() {
 
     async function init() {
         // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
+        const photographers = await dataFetcher.getPhotographersList();
         displayData(photographers);
     };
     
