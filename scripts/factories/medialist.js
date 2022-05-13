@@ -7,14 +7,13 @@ class mediaList {
     }
     
     render() {
-        const mediaSection = document.querySelector(".galerie_elements");
+        const mediaSection = document.querySelector(".galerie_container");
 
         this.medias.forEach((media) => {
             const mediumCard = new mediaCard(media);              
             mediaSection.innerHTML += mediumCard.render();
             
-        })
-        
+        })        
     }
 }
 

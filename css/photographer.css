@@ -48,6 +48,82 @@ article h2{
     cursor: pointer;
 }
 
+/* galerie */ 
+/*******************/
+/**** Gallery*******/
+/*******************/
+.galerie {
+    margin-bottom: 5rem;
+    margin: 0 10rem;
+}
+
+.galerie article img, .galerie article video {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.galerie video{
+    z-index: -100;
+}
+
+.galerie_container {
+    margin: 0 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      
+}
+.galerie_container a {
+    cursor: pointer;
+}
+.galerie_element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h3 {
+    color : #901C1C;
+    font-size: 24px;
+}
+.galerie h3 {
+    font-weight: 400;
+    margin: 0;
+}
+
+.galerie_element_details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.galerie_element_details h3 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 17rem;
+    overflow: hidden;
+}
+.likes {
+    font-size: 24px;
+    color:   #901C1C;
+    cursor: pointer;
+}
+.liked {
+    color: #eb7777;
+}
+
+.galerie_container input {
+    opacity: 0;
+    display: none;
+}
+.galerie_container label {
+    cursor: pointer;
+}
+/*modal*/ 
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
