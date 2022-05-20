@@ -1,6 +1,7 @@
 import dataFetcher from "../services/DataFetcher.js";
 import photographerCard from "../factories/photographerfactory.js";
 import mediaCard from "../factories/mediafactory.js";
+import sortMedia from "../utils/SortMedia.js";
 
 class photographerHeader {
     
@@ -17,7 +18,7 @@ class photographerHeader {
             
             if(photographer.id == photographerId){
                 const photographCard = new photographerCard(photographer);              
-                photographerHeader.innerHTML = photographCard.render();
+                photographerHeader.innerHTML += photographCard.render();
             }
         })
     }
@@ -52,6 +53,8 @@ class galerie{
         const medias = await dataFetcher.getMediaList();
         const mediumList = new galerie(medias); // new galerie(medias)
         mediumList.render();
+        const filters = new sortMedia(medias);
+        filters.render();
     };
     
     init();

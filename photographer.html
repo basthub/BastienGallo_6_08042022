@@ -20,11 +20,14 @@
       <div class="galerie">
         <div class="galerie_filter">
           <label for="filters">Trier par</label>
-            <ul id="filters">
-              <li class="filter_selected">Popularité</li>
-              <li class="filter">Date</li>
-              <li class="filter">Titre</li>
-            </ul>          
+            <ul id="filters" class="filter_container">
+              <li class="filter filter--selected">Popularité</li>
+              <ul class="filter_wrapped">
+                <li class="filter">Date</li>
+                <li class="filter">Titre</li>
+              </ul>
+            </ul>
+            <i class="fa-regular fa-chevron-down"></i>          
         </div>
         <section class="galerie_container"></section>
       </div>
@@ -60,7 +63,8 @@
         </div>
 			</div>
 		</div>
-    <script src="scripts/utils/contactForm.js"></script>
+    
     <script type = "module" src="scripts/pages/profil.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

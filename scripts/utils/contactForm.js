@@ -10,7 +10,7 @@ const nameReg = /^[a-zàâçéèêëîïôûùüÿñæœ .'-]+$/i;
 const emailReg = /^\S+@\S+\.\S+$/;
 
 //event pour afficher la modale
-contactBtn.addEventListener('click', displayModal);
+contactBtn.addEventListener('click', displayModal); //a mettre après le render du bouton
 //event pour fermer la modale
 closeBtn.addEventListener('click', closeModal);
 //event pour vérifier le formulaire avant envoi
