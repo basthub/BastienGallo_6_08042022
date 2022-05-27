@@ -2,6 +2,7 @@ import dataFetcher from "../services/DataFetcher.js";
 import photographerCard from "../factories/photographerfactory.js";
 import mediaCard from "../factories/mediafactory.js";
 import sortMedia from "../utils/SortMedia.js";
+import {submitForm} from "../utils/submitForm";
 
 class photographerHeader {
     
@@ -46,15 +47,18 @@ class galerie{
     }
 }
 
+    
+
     async function init() {
         const photographers = await dataFetcher.getPhotographersList();
         const photographHeader = new photographerHeader(photographers);
         photographHeader.render();
         const medias = await dataFetcher.getMediaList();
-        const mediumList = new galerie(medias); // new galerie(medias)
+        const mediumList = new galerie(medias); // galerie media = idphotographer
         mediumList.render();
-        const filters = new sortMedia(medias);
-        filters.render();
+        const sortSelected = new sortMedia(mediumList);
+        sortSelected.sortBy();
+        //mediumList=sortSelected.sortBy(---);
     };
     
     init();
