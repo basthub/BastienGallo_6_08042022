@@ -2,6 +2,7 @@ import dataFetcher from "../services/DataFetcher.js";
 import photographerCard from "../factories/photographerfactory.js";
 import mediaCard from "../factories/mediafactory.js";
 import sortMedia from "../utils/SortMedia.js";
+import lightbox from "../utils/lightbox.js";
 
 class photographerHeader {
     
@@ -71,7 +72,8 @@ class galerie{
         mediumList.render();
         const sortSelected = new sortMedia(mediumList);
         sortSelected.sortBy();
-        //mediumList=sortSelected.sortBy(---);
+        const lightboxRender = new lightbox(medias);
+        lightboxRender.render();
     };
     
     init();

@@ -22,14 +22,14 @@
       <div class="galerie">
         <div class="galerie_filter">
           <label for="filters">Trier par</label>
-            <ul id="filters" class="filter_container">
+          <ul id="filters" class="filter_container">
               <li class="filter filter--selected">Popularité</li>
               <ul class="filter_wrapped">
                 <li class="filter">Date</li>
                 <li class="filter">Titre</li>
               </ul>
-            </ul>
-            <i class="fa-regular fa-chevron-down"></i>          
+          </ul>
+          <img src="./assets/icons/angle-down-solid.svg" alt="chevron">                     
         </div>
         <section class="galerie_container"></section>
       </div>
@@ -65,6 +65,13 @@
         </div>
 			</div>
 		</div>
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox__container"></div>
+      <button class="lightbox__closebtn">X</button>
+      <button class="lightbox__previousbtn"><</button>
+      <button class="lightbox__nextbtn">></button>
+    </button>
+    </div>
     
     <script type = "module" src="scripts/pages/profil.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
