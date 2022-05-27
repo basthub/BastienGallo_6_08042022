@@ -2,7 +2,6 @@ import dataFetcher from "../services/DataFetcher.js";
 import photographerCard from "../factories/photographerfactory.js";
 import mediaCard from "../factories/mediafactory.js";
 import sortMedia from "../utils/SortMedia.js";
-import {submitForm} from "../utils/submitForm";
 
 class photographerHeader {
     
@@ -18,8 +17,22 @@ class photographerHeader {
             let photographerId = params.get('id');
             
             if(photographer.id == photographerId){
-                const photographCard = new photographerCard(photographer);              
-                photographerHeader.innerHTML += photographCard.render();
+                let article = document.createElement("article");
+                let articleContent = `
+                    <h2>${photographer.name}</h2>
+                    <h3>${photographer.city + ", " + photographer.country}</h3>
+                    <p>${photographer.tagline}</p>
+                    `   ;
+                article.innerHTML =articleContent;
+                photographerHeader.appendChild(article);
+
+                let img = document.createElement("div");
+                let imgContent = `
+                    <img src='./assets/photographers/${photographer.portrait}' alt='${photographer.name}'></img>
+                    `;
+                img.innerHTML = imgContent;
+                photographerHeader.appendChild(img)
+              
             }
         })
     }

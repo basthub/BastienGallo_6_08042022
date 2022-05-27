@@ -15,17 +15,50 @@
     align-items: flex-start;
 }
 
-article h2{
+.photograph-header h2 {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
     font-size: 64px;
+    line-height: 83px;  
+    color: #D3573C;
+    margin: 0;
+}
+.photograph-header h3 {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    margin: 0 0 5px 0 ;
 }
 
+.photograph-header p {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
+    margin: 0;
+}
 .photograph-header img {
     height: 200px;
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
+    order : 3
 }
 
+.photograph-header > article{
+    order:1;
+}
+.photograph-header > button{
+    order:2;
+}
+.photograph-header > div{
+    order:3;
+}
 .contact_button {
     font-size: 20px;
     font-weight: bold;

@@ -10,7 +10,7 @@ class photographerCard {
 
         return `
         <article onclick="location.href='./photographer.html?id=${this.photographer.id}'">
-            <img src="${picture}" />
+            <img src="${picture}" alt="${this.photographer.name}"/>
             <h2>${this.photographer.name}</h2>
             <h3>${this.photographer.city + ", " + this.photographer.country}</h3>
             <p>${this.photographer.tagline}</p>
