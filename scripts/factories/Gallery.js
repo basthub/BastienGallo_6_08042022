@@ -3,7 +3,7 @@ import mediaCard from "./mediafactory.js";
 class Gallery{
     constructor(media){
         this.media = media;
-
+        
         const params = (new URL(document.location)).searchParams;
         const photographerId = params.get('id');
 

@@ -6,11 +6,7 @@ class lightbox{
 
 
     render(){
-        this.displayLightbox();
-        //this.renderLightbox();
-    }
-
-    displayLightbox(){
+ 
         console.log("gallery suivante : "+this.gallery);
         const lightbox = document.getElementById('lightbox');
         let filteredMedias = this.gallery.filteredMedias;
@@ -43,10 +39,9 @@ class lightbox{
             lightboxPreviousBtn.addEventListener('click', previousLightbox);
 
             const lightboxContainer = lightbox.querySelector('.lightbox__container');
-            const mediaDisplay = document.createElement('div');
+            
 
             let mediaIndex = Array.from(mediaPreview).indexOf(event.target);
-            console.log('recup');
             console.log("index: "+mediaIndex);
             let media = filteredMedias[mediaIndex];
             console.log("target "+ event.target.className);
@@ -54,80 +49,110 @@ class lightbox{
 
             if(mediaTarget){
                 lightbox.classList.add('lightbox--active');
-                console.log("openlightbox work et media ok");
-                
-                console.log(filteredMedias);
+                console.log("openlightbox work");
+                const mediaDisplay = lightboxContainer;//document.createElement('div');
+                console.log("filteredMedias : "+filteredMedias);
                 console.log("mediadisplay "+mediaDisplay);
-                mediaDisplay.classList.add('lightbox__medias--active');
-                lightboxContainer.appendChild(mediaDisplay);
-                mediaDisplay.classList.add('lightbox__medias');
+                //mediaDisplay.classList.add('lightbox__medias', 'lightbox__medias--active');
+                //lightboxContainer.appendChild(mediaDisplay);
+                
                 if (media.video){
                     mediaDisplay.innerHTML = `
+                    <div class='lightbox__medias lightbox__medias--active'>
                         <video controls src='../assets/medias/${media.video}' alt='${media.title}'></video>
                         <h2>${media.title} </h2>
+                    </div>
                     `;
 
                 }
                 if (media.image){
                     mediaDisplay.innerHTML = `
+                    <div class='lightbox__medias lightbox__medias--active'>
                         <img src='./assets/medias/${media.image}' alt='${media.title}'/>
                         <h2>${media.title}</h2>
+                    </div>
                     `;
 
                 }
             };
 
-        }    
+            
            
             function closeLightbox(){
                 let mediaDisplay = document.querySelector('.lightbox__medias--active');
-                //mediaDisplay.classList.remove('lightbox__medias--active');
-                mediaDisplay.remove('div');
+                //mediaDisplay.remove('div');
                 lightbox.classList.remove('lightbox--active');
-
-                console.log('close btn work');
+                                console.log('close btn work');
             };
             
             function nextLightbox(){
                 console.log('next btn');
-                /*let mediaDisplay = document.querySelector('.lightbox__medias--active');
-                mediaDisplay.classList.remove('lightbox__medias--active');*/
-            };
+                let mediaDisplay = document.querySelector('.lightbox__medias--active');
+            console.log("index: "+mediaIndex);
+            mediaDisplay.classList.remove('lightbox__medias--active');
+            mediaIndex++;
+            console.log("new index : "+mediaIndex);
+
+            let media = filteredMedias[mediaIndex];
+            let maxMedia = filteredMedias.length;
+            maxMedia--;
+            console.log("medias : "+ maxMedia);
+            if (mediaIndex >= maxMedia ) {
+                mediaIndex = 0;
+            console.log('work');
+            }
             
-            function previousLightbox(){
-                console.log('previous btn');
-               /* let mediaDisplay = document.querySelector('.lightbox__medias--active');
-                mediaDisplay.classList.remove('lightbox__medias--active');*/
-            };
-
-        
-    }
-    /*renderLightbox(){
-        const lightbox = document.getElementById('lightbox');
-        let medias = this.medias;
-
-        medias.forEach((media) =>{
-            const lightboxContainer = lightbox.querySelector('.lightbox__container');
-            const mediaDisplay = document.createElement('div');
-
             if (media.video){
                 mediaDisplay.innerHTML = `
                     <video controls src='../assets/medias/${media.video}' alt='${media.title}'></video>
                     <h2>${media.title} </h2>
                 `;
-                lightboxContainer.appendChild(mediaDisplay);
-                mediaDisplay.classList.add('lightbox__medias');
+
             }
             if (media.image){
                 mediaDisplay.innerHTML = `
                     <img src='./assets/medias/${media.image}' alt='${media.title}'/>
                     <h2>${media.title}</h2>
                 `;
-                lightboxContainer.appendChild(mediaDisplay);
-                mediaDisplay.classList.add('lightbox__medias');
+
             }
-        });
-    }*/
+            mediaDisplay.classList.add('lightbox__medias--active');
+            };
+            
+            function previousLightbox(){
+                console.log('previous btn');
+                let mediaDisplay = document.querySelector('.lightbox__medias--active');
+            console.log("index: "+mediaIndex);
+            mediaDisplay.classList.remove('lightbox__medias--active');
+            mediaIndex--;
+            console.log("new index : "+mediaIndex);
+            let media = filteredMedias[mediaIndex];
+            let maxMedia = filteredMedias.length;
+            maxMedia--;
+            console.log("medias : "+ maxMedia);
+            if (mediaIndex <= 0 ) {
+                mediaIndex = maxMedia;
+            console.log('work');
+            }
+            if (media.video){
+                mediaDisplay.innerHTML = `
+                    <video controls src='../assets/medias/${media.video}' alt='${media.title}'></video>
+                    <h2>${media.title} </h2>
+                `;
+
+            }
+            if (media.image){
+                mediaDisplay.innerHTML = `
+                    <img src='./assets/medias/${media.image}' alt='${media.title}'/>
+                    <h2>${media.title}</h2>
+                `;
+
+            }
+            mediaDisplay.classList.add('lightbox__medias--active');
+            };
+        }
+        
+    }
 }
 
 export default lightbox
