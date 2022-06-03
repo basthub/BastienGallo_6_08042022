@@ -1,4 +1,4 @@
-class mediaCard {
+class MediaCard {
     
     constructor(media){
         this.media = media;
@@ -15,8 +15,8 @@ class mediaCard {
                 <div class="galerie_element_details">
                     <h3>${this.media.title}</h3>
                     <div class="likes">
-                        <span class="likes--counter">${this.media.likes}</span>
-                        <span class="fas fa-heart"></span>              
+                        <span class="likes__counter">${this.media.likes}</span>
+                        <span id="heart" class="far fa-heart"></span>              
                     </div>
                 </div>    
             </article>
@@ -33,8 +33,8 @@ class mediaCard {
                 <div class="galerie_element_details">
                     <h3>${this.media.title}</h3>
                     <div class="likes">
-                        <span class="likes--counter">${this.media.likes}</span>
-                        <span class="fas fa-heart"></span>              
+                        <span class="likes__counter">${this.media.likes}</span>
+                        <span id="heart" class="far fa-heart"></span>              
                     </div>
                 </div>    
             </article>
@@ -44,4 +44,4 @@ class mediaCard {
 }
 
 
-export default mediaCard
+export default MediaCard

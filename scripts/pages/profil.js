@@ -3,6 +3,7 @@ import PhotographerHeader from "../factories/PhotographerHeader.js";
 import Gallery from "../factories/Gallery.js";
 import SortMedia from "../utils/SortMedia.js";
 import Lightbox from "../utils/Lightbox.js";
+import PhotographerFooter from "../factories/PhotographerFooter.js"
 
     async function init() {
         const photographers = await DataFetcher.getPhotographersList();
@@ -19,6 +20,9 @@ import Lightbox from "../utils/Lightbox.js";
         
         const lightboxRender = new Lightbox(medias, gallery);
         lightboxRender.render();
+
+        const photographerFooter = new PhotographerFooter(photographers, medias);
+        photographerFooter.render();
     };
     
     init();
