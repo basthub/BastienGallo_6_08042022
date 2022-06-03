@@ -1,6 +1,6 @@
-import photographerCard from "./photographerfactory.js";
+import PhotographerCard from "./Photographerfactory.js";
 
-class photographerList {
+class PhotographerList {
     
     constructor(photographers) {
         this.photographers = photographers;
@@ -10,11 +10,11 @@ class photographerList {
         const photographersSection = document.querySelector(".photographer_section");
 
         this.photographers.forEach((photographer) => {
-            const photographCard = new photographerCard(photographer);              
+            const photographCard = new PhotographerCard(photographer);              
             photographersSection.innerHTML += photographCard.render();
             
         })
     }
 }
 
-export default photographerList
+export default PhotographerList

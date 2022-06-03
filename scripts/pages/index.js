@@ -1,10 +1,10 @@
-import dataFetcher from "../services/DataFetcher.js";
-import photographerList from "../factories/photographerlist.js";
+import DataFetcher from "../services/DataFetcher.js";
+import PhotographerList from "../factories/Photographerlist.js";
 
 
     async function init() {
-        const photographers = await dataFetcher.getPhotographersList();
-        const photographList = new photographerList(photographers);
+        const photographers = await DataFetcher.getPhotographersList();
+        const photographList = new PhotographerList(photographers);
         photographList.render();
     };
     

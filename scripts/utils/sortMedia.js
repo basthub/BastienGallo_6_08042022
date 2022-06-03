@@ -1,6 +1,6 @@
 import Gallery from "../factories/Gallery.js";
 
-class sortMedia{
+class SortMedia{
     constructor(gallery){
     this.gallery= gallery;
     this.sortSelecter()
@@ -86,4 +86,4 @@ class sortMedia{
     }
 }
 
-export default sortMedia
+export default SortMedia

@@ -1,4 +1,4 @@
-import mediaCard from "./mediafactory.js";
+import MediaCard from "./Mediafactory.js";
 
 class Gallery{
     constructor(media){
@@ -16,7 +16,7 @@ class Gallery{
         gallery.innerHTML = '';
 
         this.filteredMedias.forEach((media) => {
-            const mediumCard = new mediaCard(media);              
+            const mediumCard = new MediaCard(media);              
             gallery.innerHTML += mediumCard.render();  
         })
     }

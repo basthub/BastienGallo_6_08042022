@@ -1,4 +1,4 @@
-class dataFetcher{
+class DataFetcher{
     static async getData(){
         try{
             const response = await fetch('./data/photographers.json');
@@ -18,4 +18,4 @@ class dataFetcher{
     }
 }
 
-export default dataFetcher;
+export default DataFetcher;
