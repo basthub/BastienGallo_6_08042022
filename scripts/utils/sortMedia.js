@@ -1,6 +1,9 @@
+import Gallery from "../factories/Gallery.js";
+
 class sortMedia{
-    constructor(medias){
-    this.medias= medias;
+    constructor(gallery){
+    this.gallery= gallery;
+    this.sortSelecter()
     }
 
     sortSelecter(){
@@ -9,32 +12,23 @@ class sortMedia{
         const filterWrapped = document.querySelector(".filter_wrapped");
         
 
-        sortMenu.focus();
-
         sortMenu.addEventListener("click", (event) => {
             filterWrapped.classList.toggle("filter_wrapped--active");
-
+            
             let filterSelected = event.target.innerHTML;
+            
+            const filters = ['Date', 'Titre', 'Popularité'];
 
-            if (filterSelected ==="Date"){
+            if (filters.includes(filterSelected)){
                 event.target.innerHTML = filterActive.innerHTML;
-                filterActive.innerHTML = "Date";                
-            }
-            if (filterSelected ==="Titre"){
-                event.target.innerHTML = filterActive.innerHTML;
-                filterActive.innerHTML = "Titre";                
-            }
-            if (filterSelected ==="Popularité"){
-                event.target.innerHTML = filterActive.innerHTML;
-                filterActive.innerHTML = "Popularité";
-            }
-        });
-        
+                filterActive.innerHTML = filterSelected;
+                this.sortBy(filterSelected);
+                this.gallery.render();               
+            }   
+        }); 
     }
     
     sortBy(sortType){
-        
-        this.sortSelecter(); // to fix, not working
         switch (sortType){
             case 'Popularité':
                 console.log("switch like "+sortType);
@@ -54,8 +48,7 @@ class sortMedia{
 
     sortByLike(){
         console.log("sort by like");
-        let array = Array.from(this.medias);
-        array.sort(function compare(a, b){
+        this.gallery.filteredMedias.sort(function compare(a, b){
             if (a.likes < b.likes) {
                 return -1;
             }
@@ -66,14 +59,12 @@ class sortMedia{
                 return 1;
             }
         })
-        console.log(array);
-        return array.reverse();
+        this.gallery.filteredMedias.reverse();
     }
 
     sortByTitle(){
         console.log("sort by title");
-        let array = Array.from(this.medias);
-        array.sort(function compare(a, b){
+        this.gallery.filteredMedias.sort(function compare(a, b){
             if (a.title < b.title){
                 return -1;
             }
@@ -83,25 +74,16 @@ class sortMedia{
             else{
                 return 1;
             }
-        })
-        console.log(array);
-        return array;
-        
+        })        
     }
     
     sortByDate(){
         console.log("sort by date");
-        let array = Array.from(this.medias);
-        array.sort((a, b) => {
-            if (a.date < b.date){
-                return -1;
-            }
+        this.gallery.filteredMedias.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date)
         });
-        console.log(array);
-        return array.reverse();
+        this.gallery.filteredMedias.reverse();
     }
-    
 }
-
 
 export default sortMedia

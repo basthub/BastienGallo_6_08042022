@@ -42,7 +42,7 @@
     color: #525252;
     margin: 0;
 }
-.photograph-header img {
+.photograph-header img, .photograph-header video {
     height: 200px;
     width: 200px;
     object-fit: cover;
@@ -161,7 +161,7 @@ li{
       grid-template-rows: 1fr 1fr;
       
 }
-.galerie_container a {
+.media_preview {
     cursor: pointer;
 }
 .galerie_element {
