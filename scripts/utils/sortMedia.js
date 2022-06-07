@@ -1,12 +1,12 @@
-import Gallery from "../factories/Gallery.js";
+import Lightbox from "./Lightbox.js";
+import Likes from "../utils/Likes.js"
 
 class SortMedia{
     constructor(gallery){
     this.gallery= gallery;
-    this.sortSelecter()
     }
 
-    sortSelecter(){
+    render(){
         const sortMenu = document.querySelector(".galerie_filter");
         const filterActive = document.querySelector(".filter--selected");
         const filterWrapped = document.querySelector(".filter_wrapped");
@@ -23,7 +23,12 @@ class SortMedia{
                 event.target.innerHTML = filterActive.innerHTML;
                 filterActive.innerHTML = filterSelected;
                 this.sortBy(filterSelected);
-                this.gallery.render();               
+                this.gallery.render();
+                const lightboxRender = new Lightbox(this.medias, this.gallery);
+                lightboxRender.render();
+                const likesRender= new Likes(this.medias);
+                likesRender.render();
+                               
             }   
         }); 
     }
