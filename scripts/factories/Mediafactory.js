@@ -32,4 +32,3 @@ class MediaCard {
 
 
 export default MediaCard
-

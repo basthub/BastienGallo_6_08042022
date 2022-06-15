@@ -265,7 +265,7 @@ input:invalid, textarea:invalid{
 }
 .filter{
     width: 170px;
-    font-weight: 300;
+    font-weight: 400;
     text-decoration: none;
     color: white;
     background-color: #901C1C;
@@ -275,12 +275,15 @@ input:invalid, textarea:invalid{
 }
 .filter:hover, .filter:focus{
     background-color: #DB8876;
+    color:#000;
+    border: none;
 }
 ul {
     margin: 0;
     padding: 0;
 }
 li{
+    border: none;
     list-style: none;
 }
 
