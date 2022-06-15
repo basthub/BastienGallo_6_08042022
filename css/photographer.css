@@ -444,7 +444,6 @@ button {
 
 .lightbox__previousbtn, .lightbox__nextbtn{
     color: #911C1C;
-    
     font-size: 48px;
     cursor: pointer;
     margin: 0 2rem;
@@ -457,6 +456,10 @@ button {
 .lightbox__nextbtn{
     right: 0;
     left: auto;
+}
+
+.lightbox__previousbtn--disabled, .lightbox__nextbtn--disabled{
+    color: #c4c4c4;
 }
 .lightbox__container {
     display: flex;
