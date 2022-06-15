@@ -283,6 +283,7 @@ ul {
 li{
     list-style: none;
 }
+
 .filter_wrapped{
     display: none;
     flex-direction: column;    
