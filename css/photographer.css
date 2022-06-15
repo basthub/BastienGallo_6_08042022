@@ -18,7 +18,7 @@
     align-items: flex-start;
 }
 
-.photograph-header h2 {
+.photograph-header h1 {
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 400;
@@ -56,14 +56,20 @@
 
 .photograph-header > article{
     order:1;
-    margin: 10px;
+    margin-left: 50px;
+    width: 35%;
 }
 .photograph-header > button{
     order:2;
     margin: 20px;
+    
 }
 .photograph-header > div{
     order:3;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    width: 35%;
 }
 .contact_button {
     font-size: 20px;
@@ -77,6 +83,147 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.contact_button:hover, .contact_button:focus{
+    color : #000;
+    background-color: #DB8876;
+}
+
+/*contact modal*/ 
+.contact_modal {
+    display: none;
+    background:rgba(196, 196, 196, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+.contact_modal--active{
+    display:flex;
+}
+.contact_modal__container {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 46%;
+    min-height: 600px;
+    max-width: 670px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 35px;
+    margin: 60px auto;
+}
+
+.contact_modal__container header {
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    height: auto;
+
+}
+
+.contact_modal__container span{
+    font-size: 55px;
+    color: #fff;
+    cursor: pointer;
+}
+.contact_modal__container span:hover{
+    color: #000;
+}
+
+.contact_modal__container header h1 {
+    margin: 0;
+    font-size: 55px;
+    font-weight: 400;
+    color: #000;
+}
+
+.contact_modal__closebtn{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 35px;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: #312E2E;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+form input {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+}
+form textarea{
+    display: block;
+    min-width: 0;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 24px;
+}
+#submit_btn{
+    cursor: pointer;
+    font-size: 18px;
+    width: 170px;
+    height: 70px;
+    background-color: #901C1C;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+}
+#submit_btn:hover, #submit_btn:focus{
+    color: #901C1C;
+    background-color: #FFF;
+}
+#submit_btn:focus{
+    border-color: #525252;
+}
+input:valid, textarea:valid {
+    border:none;
+}
+input:invalid, textarea:invalid{
+    border : 3px solid #901C1C;
+}
+#success_message{
+    display: none;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid #167416;
+    border-radius: 5px;
+    background-color: #569f71;
+    position: absolute;
+    top: 3%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    z-index: 100;
+}   
+
 /*filter*/
 
 .galerie_filter{
@@ -93,14 +240,16 @@
 .galerie_filter label{
     min-width: 5rem;
 }
-.galerie_filter img{
-    width: 20px;
+.galerie_filter span{
+    width: 18px;
     position: absolute;
-    z-index: 100;
-    top: 0.6rem;
-    right: 0.8rem;
+    z-index: 3;
+    top: 0.75rem;
+    right: 0.75rem;
     filter: brightness(0) invert(1);
     pointer-events: none;
+    font-size: 18px;
+
 }
 .filter_container{
     margin:  0 auto 2rem 3rem ;
@@ -153,10 +302,6 @@ li{
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
-}
-
-.galerie video{
-    z-index: -100;
 }
 
 .galerie_container {
@@ -221,70 +366,6 @@ h3 {
 .galerie_container label {
     cursor: pointer;
 }
-/*modal*/ 
-#contact_modal {
-    display: none;
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-}
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
-}
-
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.modal header img {
-    cursor: pointer;
-}
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-
-form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-form label {
-    color: #312E2E;
-    font-size: 36px;
-}
-
-form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
-
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
-}
 
 /* lightbox */
 
@@ -300,6 +381,7 @@ form input {
     height: 100%;
     background-color: white;
 }
+
 .lightbox--active{
     display: flex;
 }
@@ -308,6 +390,8 @@ form input {
     overflow: hidden;
     padding: 2rem;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 .lightbox__medias img, .lightbox__medias video{
     max-width: 900px;
@@ -329,32 +413,42 @@ form input {
     justify-content:center;
 }
 button {
-    background-color: inherit;
+    background: none;
     border: none;
+    padding: 0;
 }
-.lightbox__closebtn{
+.lightbox > button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 42px;
     height: 42px;
     position: absolute;
+    padding: 0;
+    
+}
+.lightbox button > span{
+    width: 42px;
+    height: 42px;
+    font-size: 42px;
+}
+.lightbox__closebtn{
     top: 0;
     right: 0;
     margin: 2rem;
     cursor: pointer;
     z-index: 100;
     color: #911C1C;
-    
     font-size: 40px;
-
 }
 
 .lightbox__previousbtn, .lightbox__nextbtn{
-    position : absolute;
     color: #911C1C;
-    padding: 5rem 1rem;
+    
     font-size: 48px;
     cursor: pointer;
     margin: 0 2rem;
-     
+
 }
 .lightbox__previousbtn{
     right: auto;
@@ -375,7 +469,7 @@ footer{
     position: fixed;
     right : 35px;
     bottom: 0;
-    z-index: 100;
+    z-index: 99;
     display: flex;
     align-items: center;
     width: 375px;

@@ -25,6 +25,26 @@ class Likes{
             }
             });
         })   
+        likes.forEach((like) =>{
+            like.addEventListener('keydown', (e) =>{
+                if(e.key ==='Enter'){
+                    const likesCounter = like.querySelector(".likes__counter");
+                    const heart = like.querySelector('.fa-heart');
+                    let likeOnMedia = parseInt(likesCounter.innerHTML);
+                    heart.classList.toggle('liked');
+                    
+                    let isLiked= heart.classList.contains('liked');
+                    likesCounter.innerHTML = isLiked ? ++likeOnMedia : --likeOnMedia;
+                    footerTotalLikes.innerHTML = isLiked ? ++totalLikes : --totalLikes;
+                    if(isLiked){
+                        heart.classList.replace("far", "fas"); 
+                    }
+                    else{
+                        heart.classList.replace("fas", "far");
+                    }
+                }
+            });
+        })   
     }
 }
 

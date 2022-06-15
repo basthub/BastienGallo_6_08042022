@@ -12,69 +12,38 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="page d'accueil" />
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button">Contactez-moi</button>
+      </div>
+      <div id="contact_modal" class="contact_modal">
+        <div class="contact_modal__container"></div>
+        
       </div>
       <div class="galerie">
         <div class="galerie_filter">
           <label for="filters">Trier par</label>
-          <ul id="filters" class="filter_container">
+          <ul id="filters" class="filter_container"name="filters" >
               <li class="filter filter--selected">Popularité</li>
-              <ul class="filter_wrapped">
-                <li class="filter">Date</li>
-                <li class="filter">Titre</li>
-              </ul>
+              <li class="filter filter_wrapped">Date</li>
+              <li class="filter filter_wrapped">Titre</li>
           </ul>
-          <img src="./assets/icons/angle-down-solid.svg" alt="chevron">                     
+          <span class="fa-solid fa-chevron-down" alt="chevron"></span>                   
         </div>
         <section class="galerie_container"></section>
       </div>
       <footer></footer>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" />
-        </header>
-				<form>
-					<div>
-						<label for="firstname">Prénom</label>
-            <input type="text" id="firstname" />
-          </div>
-          <div>
-            <label for="lastname">Nom</label>
-            <input type="text" id="lastname" />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" />
-					</div>
-          <div>
-            <label for="message">Message</label>
-            <input id="message" type ="text" />
-          </div>
-          <button type="submit" id="submit_btn">Envoyer</button>
-				</form>
-        <div class="formsend">
-          <p>Votre message a été envoyé</p>
-          <img src="assets/icons/close.svg" />
-        </div>
-			</div>
-		</div>
     <div id="lightbox" class="lightbox">
       <div class="lightbox__container"></div>
-      <button class="lightbox__closebtn">X</button>
-      <button class="lightbox__previousbtn"><</button>
-      <button class="lightbox__nextbtn">></button>
-    </button>
+      <button class="lightbox__closebtn" aria-label="close lightbox"><span class="fa-solid fa-xmark"></span></button>
+      <button class="lightbox__previousbtn"aria-label="previous media"><span class="fa-solid fa-chevron-left"></span></button>
+      <button class="lightbox__nextbtn" aria-label="next media"><span class="fa-solid fa-chevron-right"></span></button>
     </div>
-    
+    <div id="success_message"></div>
     <script type = "module" src="scripts/pages/profil.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
+    <script type="module" src="scripts/utils/contactForm.js"></script>
   </body>
 </html>
