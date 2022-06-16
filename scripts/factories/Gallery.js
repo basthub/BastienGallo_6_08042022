@@ -1,25 +1,24 @@
-import MediaCard from "./Mediafactory.js";
+import MediaCard from './Mediafactory.js'
 
-class Gallery{
-    constructor(media){
-        this.media = media;
-        
-        const params = (new URL(document.location)).searchParams;
-        const photographerId = params.get('id');
+class Gallery {
+  constructor (media) {
+    this.media = media
 
-        this.filteredMedias = this.media.filter(media => media.photographerId == photographerId);
-    }
+    const params = (new URL(document.location)).searchParams
+    const photographerId = params.get('id')
 
-    render(){
-        
-        const gallery = document.querySelector(".galerie_container");
-        gallery.innerHTML = '';
+    this.filteredMedias = this.media.filter(media => media.photographerId == photographerId)
+  }
 
-        this.filteredMedias.forEach((media) => {
-            const mediumCard = new MediaCard(media);              
-            gallery.innerHTML += mediumCard.render();  
-        })
-    }
+  render () {
+    const gallery = document.querySelector('.galerie_container')
+    gallery.innerHTML = ''
+
+    this.filteredMedias.forEach((media) => {
+      const mediumCard = new MediaCard(media)
+      gallery.innerHTML += mediumCard.render()
+    })
+  }
 }
 
 export default Gallery

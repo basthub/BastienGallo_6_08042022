@@ -265,7 +265,7 @@ input:invalid, textarea:invalid{
 }
 .filter{
     width: 170px;
-    font-weight: 400;
+    font-weight: 300;
     text-decoration: none;
     color: white;
     background-color: #901C1C;
