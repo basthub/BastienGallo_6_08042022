@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/photographer.css" rel="stylesheet" type="text/css" />
@@ -10,34 +10,34 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
-      <a href="index.html">
+    <header id="header" aria-hidden="false">
+      <a href="index.html" aria-label="Fisheye Home page">
         <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div class="photograph-header"></div>
-      <div id="contact_modal" class="contact_modal">
+      <div id="contact_modal" class="contact_modal" aria-hidden="true" role="dialog" aria-describedby="Contact Modal">
         <div class="contact_modal__container"></div>
       </div>
       <div class="galerie">
         <div class="galerie_filter">
-          <label for="filters">Trier par</label>
-          <ul id="filters" class="filter_container"name="filters" >
+          <label>Trier par</label>
+          <ul id="filters" class="filter_container" aria-label="trier par">
               <li tabindex="0" class="filter filter--selected">Popularité</li>
               <li tabindex="0" class="filter filter_wrapped">Date</li>
               <li tabindex="0" class="filter filter_wrapped">Titre</li>
           </ul>
-          <span class="fa-solid fa-chevron-down" alt="chevron"></span>                   
+          <span class="fa-solid fa-chevron-down"></span>                   
         </div>
         <section class="galerie_container"></section>
       </div>
       <footer></footer>
     </main>
-    <div id="lightbox" class="lightbox">
+    <div id="lightbox" class="lightbox" aria-hidden="true" role=dialog>
       <div class="lightbox__container"></div>
       <button class="lightbox__closebtn" aria-label="close lightbox"><span class="fa-solid fa-xmark"></span></button>
-      <button class="lightbox__previousbtn"aria-label="previous media"><span class="fa-solid fa-chevron-left"></span></button>
+      <button class="lightbox__previousbtn" aria-label="previous media"><span class="fa-solid fa-chevron-left"></span></button>
       <button class="lightbox__nextbtn" aria-label="next media"><span class="fa-solid fa-chevron-right"></span></button>
     </div>
     <div id="success_message"></div>

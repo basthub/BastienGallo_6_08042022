@@ -5,7 +5,6 @@ class ContactForm {
     const params = (new URL(document.location)).searchParams
     const photographerId = params.get('id')
 
-    
     this.filteredPhotographer = this.photographer.filter(photographer => photographer.id == photographerId)
   }
 
@@ -33,7 +32,7 @@ class ContactForm {
                     </div>
                     <div>
                         <label for="message">Votre Message</label>
-                        <textarea id="message" type ="text" cols ="10" rows="5" aria-label="message"></textarea>
+                        <textarea id="message" type ="text" cols ="10" rows="5" aria-label="your message"></textarea>
                     </div>
                     <button type="submit" id="submit_btn" aria-label="send">Envoyer</button>
                 </form>
@@ -50,7 +49,11 @@ class ContactForm {
     })
 
     function openModal () {
+      document.querySelector('#header').setAttribute('aria-hidden', 'true')
+      document.querySelector('#main').setAttribute('aria-hidden', 'true')
+
       const contactModal = document.getElementById('contact_modal')
+      contactModal.setAttribute('aria-hidden', 'false')
       contactModal.classList.add('contact_modal--active')
     }
     // CloseModal
@@ -71,7 +74,10 @@ class ContactForm {
 
     function closeModal () {
       const contactModal = document.getElementById('contact_modal')
+      contactModal.setAttribute('aria-hidden', 'true')
       contactModal.classList.remove('contact_modal--active')
+      document.querySelector('#header').setAttribute('aria-hidden', 'false')
+      document.querySelector('#main').setAttribute('aria-hidden', 'false')
     }
 
     const submitBtn = document.querySelector('#submit_btn')
@@ -84,7 +90,7 @@ class ContactForm {
         document.getElementById('contactform').reset()
         showValidMessage()
       } else {
-        //show error message
+        // show error message
       }
     }
 

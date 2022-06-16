@@ -19,6 +19,10 @@ class Lightbox {
     })
 
     function openLightbox (event) {
+      document.querySelector('#header').setAttribute('aria-hidden', 'true')
+      document.querySelector('#main').setAttribute('aria-hidden', 'true')
+      document.querySelector('#lightbox').setAttribute('aria-hidden', 'false')
+
       const targetClasses = event.target.className
       const mediaTarget = targetClasses.includes('media_preview')
 
@@ -78,6 +82,10 @@ class Lightbox {
       };
 
       function closeLightbox () {
+        document.querySelector('#header').setAttribute('aria-hidden', 'false')
+        document.querySelector('#main').setAttribute('aria-hidden', 'false')
+        document.querySelector('#lightbox').setAttribute('aria-hidden', 'true')
+
         lightbox.classList.remove('lightbox--active')
       };
 

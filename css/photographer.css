@@ -27,16 +27,17 @@
     color: #D3573C;
     margin: 0;
 }
-.photograph-header h3 {
+.photograph-header__location {
     font-family: 'DM Sans';
     font-style: normal;
+    color: #901C1C;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
     margin: 0 0 5px 0 ;
 }
 
-.photograph-header p {
+.photograph-header__tagline {
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 400;
@@ -330,14 +331,6 @@ li{
     max-height: 350px;
     margin: 0 10px;
 }
-h3 {
-    color : #901C1C;
-    font-size: 24px;
-}
-.galerie h3 {
-    font-weight: 400;
-    margin: 0;
-}
 
 .galerie_element_details {
     display: flex;
@@ -347,11 +340,15 @@ h3 {
     padding: 0;
     
 }
-.galerie_element_details h3 {
+.galerie_element_details > p {
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 17rem;
     overflow: hidden;
+    font-weight: 400;
+    margin: 0;
+    color : #901C1C;
+    font-size: 24px;
 }
 .likes {
     font-size: 24px;

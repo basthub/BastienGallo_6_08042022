@@ -16,10 +16,10 @@ class PhotographerHeader {
       const headerContent = `
                 <article>
                     <h1>${photographer.name}</h1>
-                    <h3>${photographer.city + ', ' + photographer.country}</h3>
-                    <p>${photographer.tagline}</p>
+                    <p class="photograph-header__location">${photographer.city + ', ' + photographer.country}</p>
+                    <p class="photograph-header__tagline">${photographer.tagline}</p>
                 </article>
-                <button class="contact_button" aria-label="Open ${photographer.name} contact form">Contactez-moi</button>
+                <button class="contact_button" aria-label="contact ${photographer.name}">Contactez-moi</button>
                 <div>
                     <img src='./assets/photographers/${photographer.portrait}' alt='Photo de ${photographer.name}'></img>
                 </div>
