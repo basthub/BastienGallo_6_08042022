@@ -19,7 +19,6 @@ class Lightbox {
     })
 
     function openLightbox (event) {
-      
       document.querySelector('#header').setAttribute('aria-hidden', 'true')
       document.querySelector('#main').setAttribute('aria-hidden', 'true')
       document.querySelector('#lightbox').setAttribute('aria-hidden', 'false')
@@ -30,7 +29,6 @@ class Lightbox {
       const lightboxCloseBtn = document.querySelector('.lightbox__closebtn')
       const lightboxPreviousBtn = document.querySelector('.lightbox__previousbtn')
       const lightboxNextBtn = document.querySelector('.lightbox__nextbtn')
-      
 
       lightboxCloseBtn.addEventListener('click', closeLightbox)
       lightboxNextBtn.addEventListener('click', nextLightbox)
@@ -58,7 +56,7 @@ class Lightbox {
       const media = filteredMedias[mediaIndex]
 
       initNavButtons(mediaIndex, filteredMedias)
-      
+
       if (mediaTarget) {
         lightbox.classList.add('lightbox--active')
 
@@ -81,7 +79,6 @@ class Lightbox {
                     </div>
                     `
         }
-      
       };
 
       function closeLightbox () {
@@ -160,7 +157,7 @@ class Lightbox {
           nextButton.disabled = true
         }
       }
-      lightboxCloseBtn.focus();
+      lightboxCloseBtn.focus()
     }
   }
 }
