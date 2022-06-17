@@ -27,16 +27,17 @@
     color: #D3573C;
     margin: 0;
 }
-.photograph-header h3 {
+.photograph-header__location {
     font-family: 'DM Sans';
     font-style: normal;
+    color: #901C1C;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
     margin: 0 0 5px 0 ;
 }
 
-.photograph-header p {
+.photograph-header__tagline {
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 400;
@@ -68,7 +69,7 @@
     order:3;
     margin-right: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 35%;
 }
 .contact_button {
@@ -105,7 +106,6 @@
 .contact_modal__container {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 46%;
     min-height: 600px;
     max-width: 670px;
     display: flex;
@@ -114,6 +114,10 @@
     justify-content: flex-start;
     padding: 15px 35px;
     margin: 60px auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 .contact_modal__container header {
@@ -223,7 +227,15 @@ input:invalid, textarea:invalid{
     width: 30%;
     z-index: 100;
 }   
-
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 14px;
+    color: #901C1C;
+    display: block;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
 /*filter*/
 
 .galerie_filter{
@@ -330,14 +342,6 @@ li{
     max-height: 350px;
     margin: 0 10px;
 }
-h3 {
-    color : #901C1C;
-    font-size: 24px;
-}
-.galerie h3 {
-    font-weight: 400;
-    margin: 0;
-}
 
 .galerie_element_details {
     display: flex;
@@ -347,11 +351,15 @@ h3 {
     padding: 0;
     
 }
-.galerie_element_details h3 {
+.galerie_element_details > p {
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 17rem;
     overflow: hidden;
+    font-weight: 400;
+    margin: 0;
+    color : #901C1C;
+    font-size: 24px;
 }
 .likes {
     font-size: 24px;
@@ -398,8 +406,8 @@ h3 {
     height: 100%;
 }
 .lightbox__medias img, .lightbox__medias video{
-    max-width: 900px;
-    max-height: 800px;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 5px;
     object-fit: cover;
 }
@@ -410,11 +418,15 @@ h3 {
     font-weight: 400;
     font-size: 24px;
     color: #911C1C;
+    align-self: flex-start;
 }
 .lightbox__medias--active{
     display: flex;
     opacity: 1;
     justify-content:center;
+    align-items: center;
+    max-width: 85%;
+    max-height: 80%;
 }
 button {
     background: none;
@@ -425,10 +437,9 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
     position: absolute;
     padding: 0;
+    margin: 3%;
     
 }
 .lightbox button > span{
@@ -470,6 +481,8 @@ button {
     height: 95%;
     margin: auto;
     padding: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 /*Footer*/
 footer{
@@ -492,4 +505,37 @@ footer{
     width: 100%;
     margin: 30px;
     align-items: center;
+}
+
+/*Breakpoint*/
+
+@media  (max-width: 960px), (max-height: 890px) {
+    .contact_modal__container header h1 {
+        font-size: 48px;
+    }
+    form label {
+        font-size: 24px;
+      }
+    form input, form textarea {
+        font-size: 18px;
+    }
+}
+
+@media  (max-height: 750px), (max-width:530px) {
+    .contact_modal__container{
+        width: 90%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        margin: 0 auto;
+    }
+    .contact_modal__container header h1 {
+        font-size: 36px;
+    }
+    form label {
+        font-size: 24px;
+      }
+    form input, form textarea {
+        font-size: 18px;
+    }
 }

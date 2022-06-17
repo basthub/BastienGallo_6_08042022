@@ -18,9 +18,9 @@ class MediaCard {
             <article>
                 ${mediaType}
                 <div class="galerie_element_details">
-                    <h3>${this.media.title}</h3>
+                    <p>${this.media.title}</p>
                     <div class="likes"  aria-label="likes" tabindex="0">
-                        <span class="likes__counter">${this.media.likes}</span>
+                        <span class="likes__counter" aria-label="${this.media.likes} likes">${this.media.likes}</span>
                         <span id="heart" class="far fa-heart"></span>              
                     </div>
                 </div>    
