@@ -11,9 +11,9 @@ class Lightbox {
 
     mediaPreview.forEach(media => {
       media.addEventListener('click', openLightbox)
-      media.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          openLightbox(e)
+      media.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+          openLightbox(event)
         }
       })
     })
@@ -22,7 +22,7 @@ class Lightbox {
       document.querySelector('#header').setAttribute('aria-hidden', 'true')
       document.querySelector('#main').setAttribute('aria-hidden', 'true')
       document.querySelector('#lightbox').setAttribute('aria-hidden', 'false')
-
+      const targetedMedia = event.target
       const targetClasses = event.target.className
       const mediaTarget = targetClasses.includes('media_preview')
 
@@ -87,6 +87,7 @@ class Lightbox {
         document.querySelector('#lightbox').setAttribute('aria-hidden', 'true')
 
         lightbox.classList.remove('lightbox--active')
+        targetedMedia.focus()
       };
 
       function nextLightbox () {
@@ -156,6 +157,7 @@ class Lightbox {
           nextButton.disabled = true
         }
       }
+      lightboxCloseBtn.focus()
     }
   }
 }
