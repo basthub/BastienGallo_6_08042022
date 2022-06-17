@@ -55,6 +55,8 @@ class ContactForm {
       const contactModal = document.getElementById('contact_modal')
       contactModal.setAttribute('aria-hidden', 'false')
       contactModal.classList.add('contact_modal--active')
+      const closeBtn = document.querySelector('.contact_modal__closebtn')
+      closeBtn.focus()
     }
     // CloseModal
 
@@ -78,6 +80,8 @@ class ContactForm {
       contactModal.classList.remove('contact_modal--active')
       document.querySelector('#header').setAttribute('aria-hidden', 'false')
       document.querySelector('#main').setAttribute('aria-hidden', 'false')
+      const contactBtn = document.querySelector('.contact_button')
+      contactBtn.focus()
     }
 
     const submitBtn = document.querySelector('#submit_btn')
@@ -94,6 +98,8 @@ class ContactForm {
         showValidMessage()
       } else {
         showErrorMessage()
+        const closeBtn = document.querySelector('.contact_modal__closebtn')
+        closeBtn.focus()
       }
     }
 

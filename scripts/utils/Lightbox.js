@@ -11,24 +11,26 @@ class Lightbox {
 
     mediaPreview.forEach(media => {
       media.addEventListener('click', openLightbox)
-      media.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          openLightbox(e)
+      media.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+          openLightbox(event)
         }
       })
     })
 
     function openLightbox (event) {
+      
       document.querySelector('#header').setAttribute('aria-hidden', 'true')
       document.querySelector('#main').setAttribute('aria-hidden', 'true')
       document.querySelector('#lightbox').setAttribute('aria-hidden', 'false')
-
+      const targetedMedia = event.target
       const targetClasses = event.target.className
       const mediaTarget = targetClasses.includes('media_preview')
 
       const lightboxCloseBtn = document.querySelector('.lightbox__closebtn')
       const lightboxPreviousBtn = document.querySelector('.lightbox__previousbtn')
       const lightboxNextBtn = document.querySelector('.lightbox__nextbtn')
+      
 
       lightboxCloseBtn.addEventListener('click', closeLightbox)
       lightboxNextBtn.addEventListener('click', nextLightbox)
@@ -56,7 +58,7 @@ class Lightbox {
       const media = filteredMedias[mediaIndex]
 
       initNavButtons(mediaIndex, filteredMedias)
-
+      
       if (mediaTarget) {
         lightbox.classList.add('lightbox--active')
 
@@ -79,6 +81,7 @@ class Lightbox {
                     </div>
                     `
         }
+      
       };
 
       function closeLightbox () {
@@ -87,6 +90,7 @@ class Lightbox {
         document.querySelector('#lightbox').setAttribute('aria-hidden', 'true')
 
         lightbox.classList.remove('lightbox--active')
+        targetedMedia.focus()
       };
 
       function nextLightbox () {
@@ -156,6 +160,7 @@ class Lightbox {
           nextButton.disabled = true
         }
       }
+      lightboxCloseBtn.focus();
     }
   }
 }
