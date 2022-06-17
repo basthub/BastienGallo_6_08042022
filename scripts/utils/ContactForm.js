@@ -86,6 +86,9 @@ class ContactForm {
     function submit (e) {
       e.preventDefault()
       if (isFormValid()) {
+        const dataSent =[['Prénom: ',firstname.value ], ['Nom: ' , lastname.value], ['Email:' , email.value], ['Message: ', message.value]]
+        console.log('donnée du formulaire :')
+        console.table(dataSent)
         closeModal()
         document.getElementById('contactform').reset()
         showValidMessage()
