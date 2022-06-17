@@ -18,19 +18,19 @@ class ContactForm {
                     <button class="contact_modal__closebtn" aria-label="close contact form"><span class="fa-solid fa-xmark"></span></button>
                 </header>
                 <form id="contactform">
-                    <div>
+                    <div class="formData">
                         <label for="firstname">Prénom</label>
                         <input type="text" id="firstname" aria-label="firstname" />
                     </div>
-                    <div>
+                    <div class="formData">
                         <label for="lastname">Nom</label>
                         <input type="text" id="lastname" aria-label="lastname" />
                     </div>
-                    <div>
+                    <div class="formData">
                         <label for="email">Email</label>
                         <input type="email" id="email" aria-label="email" />
                     </div>
-                    <div>
+                    <div class="formData">
                         <label for="message">Votre Message</label>
                         <textarea id="message" type ="text" cols ="10" rows="5" aria-label="your message"></textarea>
                     </div>
@@ -86,14 +86,14 @@ class ContactForm {
     function submit (e) {
       e.preventDefault()
       if (isFormValid()) {
-        const dataSent =[['Prénom: ',firstname.value ], ['Nom: ' , lastname.value], ['Email:' , email.value], ['Message: ', message.value]]
+        const dataSent = [['Prénom: ', firstname.value], ['Nom: ', lastname.value], ['Email:', email.value], ['Message: ', message.value]]
         console.log('donnée du formulaire :')
         console.table(dataSent)
         closeModal()
         document.getElementById('contactform').reset()
         showValidMessage()
       } else {
-        // show error message
+        showErrorMessage()
       }
     }
 
@@ -102,32 +102,22 @@ class ContactForm {
       const lastname = document.getElementById('lastname')
       const email = document.getElementById('email')
       const message = document.getElementById('message')
-      // const errorMessage = document.querySelector('error_message');
 
       let errors = 0
       if (!firstname.value.trim()) {
-        console.log('firstName vide')
         document.getElementById('firstname').setAttribute('required', '')
         errors++
       }
       if (!lastname.value.trim()) {
-        console.log('lastName vide')
         document.getElementById('lastname').setAttribute('required', '')
         errors++
       }
-      if (!email.value.trim()) {
-        console.log('email vide')
-        document.getElementById('email').setAttribute('required', '')
-        errors++
-      }
       const emailReg = /^\S+@\S+\.\S+$/
-      if (!emailReg.test(email.value.trim())) {
-        console.log('email invalide')
+      if (!emailReg.test(email.value.trim()) || !email.value.trim()) {
         document.getElementById('email').setAttribute('required', '')
         errors++
       }
       if (!message.value.trim()) {
-        console.log('message vide')
         document.getElementById('message').setAttribute('required', '')
         errors++
       }
@@ -150,6 +140,33 @@ class ContactForm {
           })
         }, 2000
       )
+    }
+    function showErrorMessage () {
+      const firstname = document.getElementById('firstname')
+      const lastname = document.getElementById('lastname')
+      const email = document.getElementById('email')
+      const message = document.getElementById('message')
+      const formData = document.querySelectorAll('.formData')
+
+      function setErrorMessage (el, attrs) {
+        for (const key in attrs) {
+          el.setAttribute(key, attrs[key])
+        }
+      }
+      const errorMessageContent = { 'data-error-visible': 'true', 'data-error': 'Veuillez renseigner ce champ' }
+      const emailReg = /^\S+@\S+\.\S+$/
+      if (!firstname.value.trim()) {
+        setErrorMessage(formData[0], errorMessageContent)
+      }
+      if (!lastname.value.trim()) {
+        setErrorMessage(formData[1], errorMessageContent)
+      }
+      if (!emailReg.test(email.value.trim()) || !email.value.trim()) {
+        setErrorMessage(formData[2], errorMessageContent)
+      }
+      if (!message.value.trim()) {
+        setErrorMessage(formData[3], errorMessageContent)
+      }
     }
   }
 }

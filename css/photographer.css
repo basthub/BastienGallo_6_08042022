@@ -227,7 +227,15 @@ input:invalid, textarea:invalid{
     width: 30%;
     z-index: 100;
 }   
-
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 14px;
+    color: #901C1C;
+    display: block;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
 /*filter*/
 
 .galerie_filter{
